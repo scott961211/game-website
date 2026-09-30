@@ -1,0 +1,111 @@
+body{
+    margin: 0;
+
+    background-color: pink;
+    color: white;
+
+    font-family: Arial, sans-serif;
+}
+
+header{
+    height: 80px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 50px;
+
+    background-color: #181818;
+}
+
+.logo{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav{
+    display: flex;
+    gap: 30px;
+    
+    background-color: #333333;
+    padding: 15px;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+
+    padding-bottom: 8px;
+
+    transition: 0.3s;
+}
+
+nav a:hover{
+    color: #aaaaaa;
+}
+
+nav a.active{
+    color: white;
+    font-weight: bold;
+    border-bottom: 2px solid white;
+
+    padding-bottom: 8px;
+}
+
+.hero{
+    min-height: 700px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.hero-image{
+    width: 800px;
+    height: 400px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #333;
+
+    border: 2px dashed #777;
+}
+
+.hero h1{
+    font-size: 42px;
+}
+
+footer{
+    padding: 40px;
+
+    text-align: center;
+
+    background-color: #181818;
+}
+
+.social-links{
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    margin-bottom: 20px;
+}
+
+.social-links a{
+    color: white;
+
+    text-decoration: none;
+}
+
+.social-links a:hover{
+    color: #aaaaaa;
+}
