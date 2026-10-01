@@ -25,58 +25,51 @@ navLink.forEach(function(link){
 //公告輪轉
 //========================================
 
+const newsList = document.querySelector(".news-list");
 const newsCards = document.querySelectorAll(".news-card");
 
 const prevButton = document.getElementById("news-prev");
 const nextButton = document.getElementById("news-next");
 
-let newsIndex = 0;
+if(newsList && newsCards.length > 0 && prevButton && nextButton){
 
-const newsPerPage = 3;
+    let newsPage = 0;
 
-function showNews(){
+    const newsPerPage = 3;
 
-    newsCards.forEach(function(card,index){
+    const totalPages = Math.ceil(
+        newsCards.length / newsPerPage
+    );
 
-        card.style.display = "none";
+    function updateNews(){
 
-        if(
-            index >= newsIndex &&
-            index < newsIndex + newsPerPage
-        ){
-            card.style.display = "block";
+        const moveDistance = 960;
+
+        newsList.style.transform = `translateX(-${newsPage * moveDistance}px)`;
+    }
+
+    nextButton.addEventListener("click", function(){
+
+        newsPage++;
+
+        if(newsPage >= totalPages){
+            newsPage = 0;
         }
+
+        updateNews();
 
     });
 
-}
+    prevButton.addEventListener("click", function(){
 
-if(prevButton && nextButton){
+        newsPage--;
 
-    nextButton.addEventListener("click",function(){
-
-        newsIndex += newsPerPage;
-
-        if(newsIndex >= newsCards.length){
-            newsIndex = 0;
+        if(newsPage<0){
+            newsPage = totalPages - 1;
         }
 
-        showNews();
+        updateNews();
 
     });
-
-    prevButton.addEventListener("click",function(){
-
-        newsIndex -= newsPerPage;
-
-        if(newsIndex < 0){
-            newsIndex = Math.floor((newsCards.length-1) / newsPerPage) * newsPerPage;
-        }
-
-        showNews();
-
-    });
-
-    showNews();
 
 }

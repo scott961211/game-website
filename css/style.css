@@ -103,7 +103,7 @@ nav a.active{
     font-size: 42px;
 }
 
-.new {
+.news {
     padding: 100px 50px;
 
     background-color: #151515;
@@ -134,19 +134,28 @@ nav a.active{
 
     gap: 25px;
 
-    max-width: 1300px;
+    max-width: 1200px;
     margin: 0 auto;
+}
+
+.news-window{
+    width: 960px;
+
+    overflow: hidden;
 }
 
 .news-list{
     display:  flex;
-    justify-content: center;
 
     gap: 30px;
+
+    transition: transform 0.5s ease;
 }
 
-.new-card{
+.news-card{
     width: 300px;
+
+    flex-shrink: 0;
 }
 
 .news-button{
@@ -190,14 +199,14 @@ nav a.active{
     color: #aaa;
 }
 
-.new-card h3{
+.news-card h3{
     margin-top: 15px;
     margin-bottom: 5px;
 
     font-size: 20px;
 }
 
-.new-date{
+.news-date{
     margin: 0;
 
     color: #777;
