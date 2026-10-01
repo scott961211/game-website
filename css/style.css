@@ -103,6 +103,108 @@ nav a.active{
     font-size: 42px;
 }
 
+.new {
+    padding: 100px 50px;
+
+    background-color: #151515;
+}
+
+.section-title{
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+.section-title h2{
+    margin: 0;
+
+    font-size: 40px;
+}
+
+.section-title p{
+    margin-top: 8px;
+
+    color: #999;
+}
+
+.news-carousel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 25px;
+
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.news-list{
+    display:  flex;
+    justify-content: center;
+
+    gap: 30px;
+}
+
+.new-card{
+    width: 300px;
+}
+
+.news-button{
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #333;
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.news-button:hover{
+    background-color:   #555;
+
+    transform: scale(1.1);
+}
+
+.image-placeholder{
+    width: 100%;
+    height: 200px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: #333;
+
+    border: 2px dashed #777;
+
+    box-sizing: border-box;
+
+    color: #aaa;
+}
+
+.new-card h3{
+    margin-top: 15px;
+    margin-bottom: 5px;
+
+    font-size: 20px;
+}
+
+.new-date{
+    margin: 0;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
 footer{
     padding: 40px;
 
