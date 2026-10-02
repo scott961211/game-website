@@ -32,20 +32,90 @@ const nextButton = document.getElementById("news-next");
 
 if(newsList && prevButton && nextButton){
 
-    nextButton.addEventListener("click",function(){
+    let isMoving = false;
+
+    function getMoveDistance(){
 
         const firstCard = newsList.firstElementChild;
+        const cardWidth = firstCard.getBoundingClientRect().width;
+        const listStyle = window.getComputedStyle(newsList);
+        const gap = parseFloat(listStyle.gap) || 0;
 
-        newsList.appendChild(firstCard);
+        return cardWidth + gap;
+    }
 
+    nextButton.addEventListener("click",function(){
+
+        if(isMoving){
+            return;
+        }
+
+        isMoving = true;
+
+        const moveDistance = getMoveDistance();
+
+        newsList.style.transition = "transform 0.4s ease";
+
+        newsList.style.transform = `translateX(-${moveDistance}px)`;
+
+    });
+
+    newsList.addEventListener("transitionend",function(){
+
+        if(newsList.style.transform.includes("-")){
+
+            const firstCard = newsList.firstElementChild;
+
+            newsList.appendChild(firstCard);
+         
+            newsList.style.transition = "none";
+
+            newsList.style.transform = "translateX(0)";
+
+            isMoving = false;
+        }
     });
 
     prevButton.addEventListener("click",function(){
 
-        const lastcard = newsList.lastElementChild;
+        if(isMoving){
+            return;
+        }
 
-        newsList.prepend(lastcard);
+        isMoving = true;
+
+        const lastCard = newsList.lastElementChild;
+
+        newsList.style.transition = "none";
+
+        newsList.prepend(lastCard);
+
+        const moveDistance = getMoveDistance();
+
+        newsList.style.transform = `translateX(-${moveDistance}px)`;
+
+        newsList.offsetHeight;
+
+        newsList.style.transition = "transform 0.4s ease";
+
+        newsList.style.transform = "translateX(0)";
+
+        function previousFinished(){
+
+            isMoving = false;
+
+            newsList.removeEventListener(
+                "transitionend",
+                previousFinished
+            );
+
+        }
+
+        newsList.addEventListener(
+            "transitionend",
+            previousFinished
+        );
 
     });
-    
+
 }
