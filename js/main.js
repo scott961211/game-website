@@ -26,50 +26,26 @@ navLink.forEach(function(link){
 //========================================
 
 const newsList = document.querySelector(".news-list");
-const newsCards = document.querySelectorAll(".news-card");
 
 const prevButton = document.getElementById("news-prev");
 const nextButton = document.getElementById("news-next");
 
-if(newsList && newsCards.length > 0 && prevButton && nextButton){
+if(newsList && prevButton && nextButton){
 
-    let newsPage = 0;
+    nextButton.addEventListener("click",function(){
 
-    const newsPerPage = 3;
+        const firstCard = newsList.firstElementChild;
 
-    const totalPages = Math.ceil(
-        newsCards.length / newsPerPage
-    );
-
-    function updateNews(){
-
-        const moveDistance = 960;
-
-        newsList.style.transform = `translateX(-${newsPage * moveDistance}px)`;
-    }
-
-    nextButton.addEventListener("click", function(){
-
-        newsPage++;
-
-        if(newsPage >= totalPages){
-            newsPage = 0;
-        }
-
-        updateNews();
+        newsList.appendChild(firstCard);
 
     });
 
-    prevButton.addEventListener("click", function(){
+    prevButton.addEventListener("click",function(){
 
-        newsPage--;
+        const lastcard = newsList.lastElementChild;
 
-        if(newsPage<0){
-            newsPage = totalPages - 1;
-        }
-
-        updateNews();
+        newsList.prepend(lastcard);
 
     });
-
+    
 }

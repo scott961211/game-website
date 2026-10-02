@@ -132,14 +132,15 @@ nav a.active{
     justify-content: center;
     align-items: center;
 
-    gap: 25px;
+    gap: 20px;
 
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .news-window{
-    width: 960px;
+    width: 100%;
 
     overflow: hidden;
 }
@@ -149,16 +150,16 @@ nav a.active{
 
     gap: 30px;
 
-    transition: transform 0.5s ease;
+    width: 100%;
 }
 
 .news-card{
-    width: 300px;
-
-    flex-shrink: 0;
+    flex: 0 0 calc((100%-60px)/3);
 }
 
 .news-button{
+    flex-shrink: 0;
+
     width: 50px;
     height: 50px;
 
@@ -173,6 +174,38 @@ nav a.active{
     cursor: pointer;
 
     transition: 0.2s;
+}
+
+@media(max-width: 900px){
+
+    .news-card{
+        flex-basis: calc((100%-30px)/2);
+    }
+
+}
+
+@media (max-width: 600px){
+
+    .news{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .news-carousel{
+        gap: 10px;
+    }
+
+    .news-card{
+        flex-basis: 100%;
+    }
+
+    .news-button{
+        width: 40px;
+        height: 40px;
+
+        font-size: 16px;
+    }
+
 }
 
 .news-button:hover{
@@ -197,6 +230,12 @@ nav a.active{
     box-sizing: border-box;
 
     color: #aaa;
+}
+
+.image-placeholder img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .news-card h3{
